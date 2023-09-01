@@ -123,3 +123,11 @@ create table DetalleVenta(
     subtotal decimal(10,2),
     fechaRegistro datetime default getdate()
 );
+
+
+-- Insertar Datos en las tablas
+insert into Rol (descripcion)
+values ('Administrador');
+
+insert into Usuario (cedula, nombreCompleto, correo, clave, idRol, estado)
+values ('1316068301', 'Dario Valdez', 'dariovaldezc21@gmail.com', 'Admin123.', 1,1);

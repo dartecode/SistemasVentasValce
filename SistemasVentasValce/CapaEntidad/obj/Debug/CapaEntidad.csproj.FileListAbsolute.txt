@@ -1,0 +1,6 @@
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaEntidad\obj\Debug\CapaEntidad.pdb
