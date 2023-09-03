@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
             if (usuario != null)
             {
-                Home form = new Home();
+                Home form = new Home(usuario);
                 form.Show();
                 this.Hide();
 

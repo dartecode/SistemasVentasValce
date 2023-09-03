@@ -126,8 +126,49 @@ create table DetalleVenta(
 
 
 -- Insertar Datos en las tablas
+
+--Agregar Roles
 insert into Rol (descripcion)
 values ('Administrador');
 
+insert into Rol (descripcion)
+values ('Empleado');
+
+select * from Rol;
+
+--Agregar Permisos al Administrador
+insert into Permiso (idRol, nombreMenu) values 
+(1, 'menuUsuarios'),
+(1, 'menuMantenedor'),
+(1, 'menuVentas'),
+(1, 'menuCompras'),
+(1, 'menuClientes'),
+(1, 'menuProveedores'),
+(1, 'menuReportes'),
+(1, 'menuAcercaDe');
+
+--Agregar Permisos al Empleado
+insert into Permiso (idRol, nombreMenu) values 
+(2, 'menuVentas'),
+(2, 'menuCompras'),
+(2, 'menuClientes'),
+(2, 'menuProveedores'),
+(2, 'menuAcercaDe');
+
+select * from Permiso;
+
+--Mostrar Menus que tiene permiso el usuario mediante su ID
+select p.idRol, p.nombremenu from Permiso p
+inner join Rol r on r.idRol = p.idRol
+inner join Usuario u on u.idRol = p.idRol
+where u.idUsuario = 1;
+
+
+--Agregar usuarios
 insert into Usuario (cedula, nombreCompleto, correo, clave, idRol, estado)
 values ('1316068301', 'Dario Valdez', 'dariovaldezc21@gmail.com', 'Admin123.', 1,1);
+
+insert into Usuario (cedula, nombreCompleto, correo, clave, idRol, estado)
+values ('1316068315', 'Joustin Valdez', 'joustinvaldez@gmail.com', 'Joustin10', 2,1);
+
+select * from Usuario;
