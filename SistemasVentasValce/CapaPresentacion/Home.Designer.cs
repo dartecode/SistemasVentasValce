@@ -103,14 +103,14 @@
             // submenuCategoria
             // 
             this.submenuCategoria.Name = "submenuCategoria";
-            this.submenuCategoria.Size = new System.Drawing.Size(224, 26);
+            this.submenuCategoria.Size = new System.Drawing.Size(157, 26);
             this.submenuCategoria.Text = "Categoria";
             this.submenuCategoria.Click += new System.EventHandler(this.submenuCategoria_Click);
             // 
             // submenuProducto
             // 
             this.submenuProducto.Name = "submenuProducto";
-            this.submenuProducto.Size = new System.Drawing.Size(224, 26);
+            this.submenuProducto.Size = new System.Drawing.Size(157, 26);
             this.submenuProducto.Text = "Producto";
             this.submenuProducto.Click += new System.EventHandler(this.submenuProducto_Click);
             // 
@@ -136,7 +136,7 @@
             this.submenuRegistrarVenta.IconColor = System.Drawing.Color.Black;
             this.submenuRegistrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuRegistrarVenta.Name = "submenuRegistrarVenta";
-            this.submenuRegistrarVenta.Size = new System.Drawing.Size(224, 26);
+            this.submenuRegistrarVenta.Size = new System.Drawing.Size(165, 26);
             this.submenuRegistrarVenta.Text = "Registrar";
             this.submenuRegistrarVenta.Click += new System.EventHandler(this.submenuRegistrarVenta_Click);
             // 
@@ -146,7 +146,7 @@
             this.submenuDetalleVenta.IconColor = System.Drawing.Color.Black;
             this.submenuDetalleVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuDetalleVenta.Name = "submenuDetalleVenta";
-            this.submenuDetalleVenta.Size = new System.Drawing.Size(224, 26);
+            this.submenuDetalleVenta.Size = new System.Drawing.Size(165, 26);
             this.submenuDetalleVenta.Text = "Ver Detalle";
             this.submenuDetalleVenta.Click += new System.EventHandler(this.submenuDetalleVenta_Click);
             // 
@@ -172,7 +172,7 @@
             this.submenuRegistrarCompra.IconColor = System.Drawing.Color.Black;
             this.submenuRegistrarCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuRegistrarCompra.Name = "submenuRegistrarCompra";
-            this.submenuRegistrarCompra.Size = new System.Drawing.Size(224, 26);
+            this.submenuRegistrarCompra.Size = new System.Drawing.Size(165, 26);
             this.submenuRegistrarCompra.Text = "Registrar";
             this.submenuRegistrarCompra.Click += new System.EventHandler(this.submenuRegistrarCompra_Click);
             // 
@@ -182,7 +182,7 @@
             this.submenuDetalleCompra.IconColor = System.Drawing.Color.Black;
             this.submenuDetalleCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuDetalleCompra.Name = "submenuDetalleCompra";
-            this.submenuDetalleCompra.Size = new System.Drawing.Size(224, 26);
+            this.submenuDetalleCompra.Size = new System.Drawing.Size(165, 26);
             this.submenuDetalleCompra.Text = "Ver Detalle";
             this.submenuDetalleCompra.Click += new System.EventHandler(this.submenuDetalleCompra_Click);
             // 
@@ -270,7 +270,7 @@
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHome.Location = new System.Drawing.Point(0, 137);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(983, 475);
+            this.panelHome.Size = new System.Drawing.Size(983, 544);
             this.panelHome.TabIndex = 3;
             // 
             // label2
@@ -301,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 612);
+            this.ClientSize = new System.Drawing.Size(983, 681);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panelHome);

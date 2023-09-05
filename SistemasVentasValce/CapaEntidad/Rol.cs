@@ -11,6 +11,5 @@ namespace CapaEntidad
         public int idRol { get; set; }
         public string descripcion { get; set; }
         public int fechaCreacion { get; set; }
-
     }
 }

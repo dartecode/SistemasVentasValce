@@ -1,30 +1,24 @@
 ﻿using CapaEntidad;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Text;
 
 namespace CapaDatos
 {
-    public class DatosPermiso
+    public class DatosRol
     {
-        public List<Permiso> Listar(int idUsuario)
+        public List<Rol> Listar()
         {
-            List<Permiso> listaPermisos = new List<Permiso>();
+            List<Rol> listaRol = new List<Rol>();
             using (SqlConnection conexion = new SqlConnection(Conexion.cadenaConexion))
             {
                 try
                 {
-
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.idRol, p.nombremenu FROM Permiso p");
-                    query.AppendLine("INNER JOIN Rol r ON r.idRol = p.idRol");
-                    query.AppendLine("INNER JOIN Usuario u ON u.idRol = p.idRol");
-                    query.AppendLine("WHERE u.idUsuario = @idUsuario");
-
+                    query.AppendLine("SELECT idRol, descripcion FROM Rol");
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
-                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
                     cmd.CommandType = CommandType.Text;
 
                     conexion.Open();
@@ -33,10 +27,10 @@ namespace CapaDatos
                     {
                         while (reader.Read())
                         {
-                            listaPermisos.Add(new Permiso()
+                            listaRol.Add(new Rol()
                             {
-                                idRol = new Rol() { idRol = Convert.ToInt32(reader["idRol"]) },
-                                nombreMenu = reader["nombreMenu"].ToString()
+                                idRol = Convert.ToInt32(reader["idRol"]),
+                                descripcion = reader["descripcion"].ToString()
                             });
                         }
                     }
@@ -44,10 +38,10 @@ namespace CapaDatos
                 }
                 catch (Exception)
                 {
-                    listaPermisos = new List<Permiso>();
+                    listaRol = new List<Rol>();
                 }
             }
-            return listaPermisos;
+            return listaRol;
         }
     }
 }
