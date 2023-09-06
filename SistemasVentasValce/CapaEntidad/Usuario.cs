@@ -11,9 +11,9 @@ namespace CapaEntidad
         public int idUsuario { get; set; }
         public string cedula { get; set;}
         public string nombreCompleto { get; set; }
-        public string correo { get; set; }
+        public string email { get; set; }
         public string clave { get; set; }
-        public Permiso idRol { get; set; }
+        public Rol rol { get; set; }
         public bool estado { get; set; }
         public string fechaCreacion{ get; set; }
 

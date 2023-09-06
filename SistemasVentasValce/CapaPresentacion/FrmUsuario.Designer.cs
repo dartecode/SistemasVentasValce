@@ -46,27 +46,27 @@
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvIdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.cbxBusqueda = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarCampos = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,26 +225,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEditar.IconColor = System.Drawing.Color.White;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 16;
-            this.btnEditar.Location = new System.Drawing.Point(30, 417);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(184, 29);
-            this.btnEditar.TabIndex = 16;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
@@ -291,15 +271,15 @@
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
-            this.idUsuario,
-            this.cedula,
-            this.nombreCompleto,
-            this.email,
-            this.Clave,
-            this.idRol,
-            this.rol,
-            this.estadoValor,
-            this.estado});
+            this.dgvIdUsuario,
+            this.dgvCedula,
+            this.dgvNombreCompleto,
+            this.dgvEmail,
+            this.dgvClave,
+            this.dgvIdRol,
+            this.dgvRol,
+            this.dgvEstadoValor,
+            this.dgvEstado});
             this.dgvData.Location = new System.Drawing.Point(323, 63);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
@@ -311,6 +291,92 @@
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(896, 461);
             this.dgvData.TabIndex = 19;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 30;
+            // 
+            // dgvIdUsuario
+            // 
+            this.dgvIdUsuario.HeaderText = "ID USUARIO";
+            this.dgvIdUsuario.MinimumWidth = 6;
+            this.dgvIdUsuario.Name = "dgvIdUsuario";
+            this.dgvIdUsuario.ReadOnly = true;
+            this.dgvIdUsuario.Visible = false;
+            this.dgvIdUsuario.Width = 125;
+            // 
+            // dgvCedula
+            // 
+            this.dgvCedula.HeaderText = "CEDULA";
+            this.dgvCedula.MinimumWidth = 6;
+            this.dgvCedula.Name = "dgvCedula";
+            this.dgvCedula.ReadOnly = true;
+            this.dgvCedula.Width = 130;
+            // 
+            // dgvNombreCompleto
+            // 
+            this.dgvNombreCompleto.HeaderText = "NOMBRE COMPLETO";
+            this.dgvNombreCompleto.MinimumWidth = 6;
+            this.dgvNombreCompleto.Name = "dgvNombreCompleto";
+            this.dgvNombreCompleto.ReadOnly = true;
+            this.dgvNombreCompleto.Width = 150;
+            // 
+            // dgvEmail
+            // 
+            this.dgvEmail.HeaderText = "EMAIL";
+            this.dgvEmail.MinimumWidth = 6;
+            this.dgvEmail.Name = "dgvEmail";
+            this.dgvEmail.ReadOnly = true;
+            this.dgvEmail.Width = 130;
+            // 
+            // dgvClave
+            // 
+            this.dgvClave.HeaderText = "CLAVE";
+            this.dgvClave.MinimumWidth = 6;
+            this.dgvClave.Name = "dgvClave";
+            this.dgvClave.ReadOnly = true;
+            this.dgvClave.Visible = false;
+            this.dgvClave.Width = 125;
+            // 
+            // dgvIdRol
+            // 
+            this.dgvIdRol.HeaderText = "ID ROL";
+            this.dgvIdRol.MinimumWidth = 6;
+            this.dgvIdRol.Name = "dgvIdRol";
+            this.dgvIdRol.ReadOnly = true;
+            this.dgvIdRol.Visible = false;
+            this.dgvIdRol.Width = 125;
+            // 
+            // dgvRol
+            // 
+            this.dgvRol.HeaderText = "ROL";
+            this.dgvRol.MinimumWidth = 6;
+            this.dgvRol.Name = "dgvRol";
+            this.dgvRol.ReadOnly = true;
+            this.dgvRol.Width = 125;
+            // 
+            // dgvEstadoValor
+            // 
+            this.dgvEstadoValor.HeaderText = "ESTADO/VALOR";
+            this.dgvEstadoValor.MinimumWidth = 6;
+            this.dgvEstadoValor.Name = "dgvEstadoValor";
+            this.dgvEstadoValor.ReadOnly = true;
+            this.dgvEstadoValor.Visible = false;
+            this.dgvEstadoValor.Width = 150;
+            // 
+            // dgvEstado
+            // 
+            this.dgvEstado.HeaderText = "ESTADO";
+            this.dgvEstado.MinimumWidth = 6;
+            this.dgvEstado.Name = "dgvEstado";
+            this.dgvEstado.ReadOnly = true;
+            this.dgvEstado.Width = 125;
             // 
             // label10
             // 
@@ -325,95 +391,12 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(239, 44);
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(251, 63);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(44, 22);
+            this.txtId.Size = new System.Drawing.Size(32, 22);
             this.txtId.TabIndex = 21;
-            this.txtId.Visible = false;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 30;
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.HeaderText = "ID USUARIO";
-            this.idUsuario.MinimumWidth = 6;
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.ReadOnly = true;
-            this.idUsuario.Visible = false;
-            this.idUsuario.Width = 125;
-            // 
-            // cedula
-            // 
-            this.cedula.HeaderText = "CEDULA";
-            this.cedula.MinimumWidth = 6;
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 130;
-            // 
-            // nombreCompleto
-            // 
-            this.nombreCompleto.HeaderText = "NOMBRE COMPLETO";
-            this.nombreCompleto.MinimumWidth = 6;
-            this.nombreCompleto.Name = "nombreCompleto";
-            this.nombreCompleto.ReadOnly = true;
-            this.nombreCompleto.Width = 150;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "EMAIL";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 130;
-            // 
-            // Clave
-            // 
-            this.Clave.HeaderText = "CLAVE";
-            this.Clave.MinimumWidth = 6;
-            this.Clave.Name = "Clave";
-            this.Clave.ReadOnly = true;
-            this.Clave.Visible = false;
-            this.Clave.Width = 125;
-            // 
-            // idRol
-            // 
-            this.idRol.HeaderText = "ID ROL";
-            this.idRol.MinimumWidth = 6;
-            this.idRol.Name = "idRol";
-            this.idRol.ReadOnly = true;
-            this.idRol.Visible = false;
-            this.idRol.Width = 125;
-            // 
-            // rol
-            // 
-            this.rol.HeaderText = "ROL";
-            this.rol.MinimumWidth = 6;
-            this.rol.Name = "rol";
-            this.rol.ReadOnly = true;
-            this.rol.Width = 125;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.HeaderText = "ESTADO/VALOR";
-            this.estadoValor.MinimumWidth = 6;
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Visible = false;
-            this.estadoValor.Width = 150;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "ESTADO";
-            this.estado.MinimumWidth = 6;
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Width = 125;
+            this.txtId.Text = "0";
             // 
             // label11
             // 
@@ -477,6 +460,26 @@
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLimpiarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarCampos.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarCampos.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarCampos.IconColor = System.Drawing.Color.White;
+            this.btnLimpiarCampos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarCampos.IconSize = 16;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(30, 417);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(184, 29);
+            this.btnLimpiarCampos.TabIndex = 16;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiarCampos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiarCampos.UseVisualStyleBackColor = false;
+            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -493,7 +496,7 @@
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cbxEstado);
             this.Controls.Add(this.cbxRol);
@@ -537,26 +540,26 @@
         private System.Windows.Forms.ComboBox cbxRol;
         private System.Windows.Forms.ComboBox cbxEstado;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbxBusqueda;
         private System.Windows.Forms.TextBox txtBuscar;
         private FontAwesome.Sharp.IconButton btnBuscar;
         private FontAwesome.Sharp.IconButton btnLimpiar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvIdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvNombreCompleto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvClave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvIdRol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstadoValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstado;
+        private FontAwesome.Sharp.IconButton btnLimpiarCampos;
     }
 }
