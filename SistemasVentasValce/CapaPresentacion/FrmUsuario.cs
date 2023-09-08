@@ -83,14 +83,17 @@ namespace CapaPresentacion
                 estado = Convert.ToInt32(((OpcionCombo)cbxEstado.SelectedItem).Valor) == 1 ? true : false
             };
 
-            int idUsuarioGenerado = new NegocioUsuario().RegistrarUsuario(usuario, out mensaje);
-
-            if (idUsuarioGenerado != 0)
+            //Validacion para ver si Guarda o Edita en la base de datos
+            if (usuario.idUsuario == 0)
             {
-                //Agregar Datos al DataGridView
-                dgvData
-                .Rows
-                .Add(new object[] { "",
+                //Metodo Agregar
+                int idUsuarioGenerado = new NegocioUsuario().RegistrarUsuario(usuario, out mensaje);
+                if (idUsuarioGenerado != 0)
+                {
+                    //Agregar Datos al DataGridView
+                    dgvData
+                    .Rows
+                    .Add(new object[] { "",
                                     idUsuarioGenerado,
                                     txtCedula.Text,
                                     txtNombreCompleto.Text,
@@ -100,17 +103,45 @@ namespace CapaPresentacion
                                     ((OpcionCombo)cbxRol.SelectedItem).Texto.ToString(),
                                     ((OpcionCombo)cbxEstado.SelectedItem).Valor.ToString(),
                                     ((OpcionCombo)cbxEstado.SelectedItem).Texto.ToString(),
-                });
+
+                    });
+                    LimpiarTextBox();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
             }
             else
+            //Metodo Editar
             {
-                MessageBox.Show(mensaje);
+                bool resultado = new NegocioUsuario().EditarUsuario(usuario, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                    row.Cells["dgvIdUsuario"].Value = txtId.Text;
+                    row.Cells["dgvCedula"].Value = txtCedula.Text;
+                    row.Cells["dgvNombreCompleto"].Value = txtNombreCompleto.Text;
+                    row.Cells["dgvEmail"].Value = txtEmail.Text;
+                    row.Cells["dgvClave"].Value = txtClave.Text;
+                    row.Cells["dgvIdRol"].Value = ((OpcionCombo)cbxRol.SelectedItem).Valor.ToString();
+                    row.Cells["dgvRol"].Value = ((OpcionCombo)cbxRol.SelectedItem).Texto.ToString();
+                    row.Cells["dgvEstadoValor"].Value = ((OpcionCombo)cbxEstado.SelectedItem).Valor.ToString();
+                    row.Cells["dgvEstado"].Value = ((OpcionCombo)cbxEstado.SelectedItem).Texto.ToString();
+
+                    LimpiarTextBox();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
             }
-            LimpiarTextBox();
         }
 
         private void LimpiarTextBox ()
         {
+            txtIndice.Text = "-1";
             txtId.Text = "";
             txtCedula.Text = "";
             txtNombreCompleto.Text = "";
@@ -119,6 +150,8 @@ namespace CapaPresentacion
             txtConfirmarClave.Text = "";
             cbxEstado.SelectedIndex = 0;
             cbxRol.SelectedIndex = 0;
+
+            txtCedula.Select();
         }
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -149,6 +182,7 @@ namespace CapaPresentacion
                 //Pregunta si hay un usuario seleccionado y pone los datos del usuario en formulario
                 if (indice >= 0)
                 {
+                    txtIndice.Text = indice.ToString();
                     txtId.Text = dgvData.Rows[indice].Cells["dgvIdUsuario"].Value.ToString();
                     txtCedula.Text = dgvData.Rows[indice].Cells["dgvCedula"].Value.ToString();
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["dgvNombreCompleto"].Value.ToString();
@@ -177,8 +211,64 @@ namespace CapaPresentacion
                             break;
                         }
                     }
-
                 }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        { 
+            //Eliminar si hay elemento seleccionado
+            if (Convert.ToInt32(txtId.Text) != 0)
+            {
+                //MessageBox para confirmar si desea eliminar
+                if (MessageBox.Show("Desea eliminar el usuario seleccionado?", 
+                                    "Mensaje", 
+                                    MessageBoxButtons.YesNo, 
+                                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string mensaje = string.Empty;
+                    Usuario usuario = new Usuario()
+                    {
+                        idUsuario = Convert.ToInt32(txtId.Text)
+                    };
+
+                    bool respuesta = new NegocioUsuario().EliminarUsuario(usuario, out mensaje);
+                    //Eliminar de DataGridView
+                    if (respuesta)
+                    {
+                        dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cbxBusqueda.SelectedItem).Valor.ToString();
+            if (dgvData.Rows.Count > 0 )
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row
+                        .Cells[columnaFiltro].Value.ToString().Trim().ToUpper()
+                            .Contains(txtBuscar.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else 
+                        row.Visible = false;
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = string.Empty;
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Visible = true;
             }
         }
     }

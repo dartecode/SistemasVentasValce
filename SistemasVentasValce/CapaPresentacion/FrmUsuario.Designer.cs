@@ -67,6 +67,7 @@
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarCampos = new FontAwesome.Sharp.IconButton();
+            this.txtIndice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,6 +245,7 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label9
             // 
@@ -441,6 +443,7 @@
             this.btnBuscar.TabIndex = 25;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -459,6 +462,7 @@
             this.btnLimpiar.TabIndex = 26;
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnLimpiarCampos
             // 
@@ -480,12 +484,23 @@
             this.btnLimpiarCampos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiarCampos.UseVisualStyleBackColor = false;
             // 
+            // txtIndice
+            // 
+            this.txtIndice.Enabled = false;
+            this.txtIndice.Location = new System.Drawing.Point(213, 35);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(32, 22);
+            this.txtIndice.TabIndex = 27;
+            this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
+            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1231, 545);
+            this.Controls.Add(this.txtIndice);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
@@ -561,5 +576,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstado;
         private FontAwesome.Sharp.IconButton btnLimpiarCampos;
+        private System.Windows.Forms.TextBox txtIndice;
     }
 }
