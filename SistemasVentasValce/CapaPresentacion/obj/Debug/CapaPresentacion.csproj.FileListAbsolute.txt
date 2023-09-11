@@ -18,3 +18,4 @@ C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresen
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\CapaDatos.dll
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\CapaDatos.pdb
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmUsuario.resources
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCategoria.resources

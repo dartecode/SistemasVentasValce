@@ -173,6 +173,19 @@ values ('1316068315', 'Joustin Valdez', 'joustinvaldez@gmail.com', 'Joustin10', 
 
 select * from Usuario;
 
+--Agregar Categorias
+INSERT INTO Categoria (descripcion, estado)
+VALUES ('Lacteos', 1);
+
+INSERT INTO Categoria (descripcion, estado)
+VALUES ('Embutidos', 1);
+
+INSERT INTO Categoria (descripcion, estado)
+VALUES ('Enlatados', 1);
+
+SELECT * FROM Categoria;
+
+
 -- Buscar Usuarios
 SELECT idUsuario, cedula, nombreCompleto, email, clave, estado FROM Usuario;
 
@@ -182,8 +195,11 @@ FROM Usuario u
 INNER JOIN Rol r on r.idRol = u.idRol;
 
 
+
+
+
 --Procedimiento almacenado para insertar Usuario
-CREATE PROC SPRegistrarUsuario(
+CREATE PROCEDURE SPRegistrarUsuario(
     @cedula varchar(50),
     @nombreCompleto varchar(100),
     @email varchar(50),
@@ -214,7 +230,7 @@ END
 
 
 --Procedimiento almacenado para editar Usuario
-CREATE PROC SPEditarUsuario(
+CREATE PROCEDURE SPEditarUsuario(
     @idUsuario int,
     @cedula varchar(50),
     @nombreCompleto varchar(100),
@@ -251,7 +267,7 @@ END
 
 
 --Procedimiento almacenado para eliminar Usuario
-CREATE PROC SPEliminarUsuario(
+CREATE PROCEDURE SPEliminarUsuario(
     @idUsuario int,
     @respuesta bit output,
     @mensaje varchar (500) output 
@@ -263,8 +279,9 @@ BEGIN
     DECLARE @pasoReglas bit = 1
 
     IF EXISTS (SELECT * FROM Compra c 
-                INNER JOIN Usuario u ON u.idUsuario = c.idUsuario
-                WHERE u.idUsuario = @idUsuario)
+               INNER JOIN Usuario u 
+               ON u.idUsuario = c.idUsuario
+               WHERE u.idUsuario = @idUsuario)
         BEGIN
             SET @pasoReglas = 0
             SET @respuesta = 0
@@ -272,8 +289,9 @@ BEGIN
         END
 
     IF EXISTS (SELECT * FROM Venta v 
-                INNER JOIN Usuario u ON u.idUsuario = v.idUsuario
-                WHERE u.idUsuario = @idUsuario)
+               INNER JOIN Usuario u 
+               ON u.idUsuario = v.idUsuario
+               WHERE u.idUsuario = @idUsuario)
         BEGIN
             SET @pasoReglas = 0
             SET @respuesta = 0
@@ -286,5 +304,77 @@ BEGIN
 
             SET @respuesta = 1
             SET @mensaje = 'Se elimino el usuario con exito'
+        END
+END
+
+--Procedimiento para guardar categoria
+CREATE PROCEDURE SPRegistrarCategoria(
+    @descripcion varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    IF NOT EXISTS (SELECT * FROM Categoria WHERE descripcion = @descripcion)
+    
+        BEGIN
+            INSERT INTO Categoria (descripcion, estado) VALUES (@descripcion, @estado)
+            SET @resultado = SCOPE_IDENTITY()
+        END
+    
+    ELSE
+        SET @mensaje = 'Categoria ya existente'
+END
+
+--Procedimiento para editar categoria
+CREATE PROCEDURE SPEditarCategoria(
+    @idCategoria int,
+    @descripcion varchar(50),
+    @estado bit,
+    @resultado bit output, 
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    IF NOT EXISTS (SELECT * FROM Categoria WHERE descripcion = @descripcion AND idCategoria != @idCategoria)
+    
+        BEGIN
+            UPDATE Categoria SET
+            descripcion = @descripcion,
+            estado = @estado
+            WHERE idCategoria = @idCategoria
+        END
+    
+    ELSE
+        BEGIN
+            SET @resultado = 0
+            SET @mensaje = 'Categoria ya existente'
+        END
+END
+
+--Procedimiento para eliminar categoria
+CREATE PROCEDURE SPEliminarCategoria(
+    @idCategoria int,
+    @resultado bit output, 
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    IF NOT EXISTS (SELECT * FROM Categoria c 
+                   INNER JOIN Producto p 
+                   ON p.idCategoria = c.idCategoria 
+                   WHERE c.idCategoria = @idCategoria)
+        BEGIN
+            DELETE TOP(1) FROM Categoria WHERE idCategoria = @idCategoria
+        END
+    
+    ELSE
+        BEGIN
+            SET @resultado = 0
+            SET @mensaje = 'No se puede eliminar Categorias que se encuentran relacionadas a un producto'
         END
 END
