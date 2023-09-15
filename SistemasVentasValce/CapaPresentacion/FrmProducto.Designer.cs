@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -66,12 +66,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnExportarExcel = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLimpiar.BackColor = System.Drawing.Color.AliceBlue;
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -80,7 +81,7 @@
             this.btnLimpiar.IconColor = System.Drawing.Color.Black;
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 18;
-            this.btnLimpiar.Location = new System.Drawing.Point(1108, 15);
+            this.btnLimpiar.Location = new System.Drawing.Point(1151, 49);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(47, 29);
             this.btnLimpiar.TabIndex = 54;
@@ -90,16 +91,16 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Green;
+            this.btnBuscar.BackColor = System.Drawing.Color.Ivory;
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
             this.btnBuscar.IconColor = System.Drawing.Color.Black;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 20;
-            this.btnBuscar.Location = new System.Drawing.Point(1055, 15);
+            this.btnBuscar.Location = new System.Drawing.Point(1098, 49);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(47, 29);
             this.btnBuscar.TabIndex = 53;
@@ -109,7 +110,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(846, 22);
+            this.txtBuscar.Location = new System.Drawing.Point(899, 51);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(184, 22);
             this.txtBuscar.TabIndex = 52;
@@ -118,7 +119,7 @@
             // 
             this.cbxBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBusqueda.FormattingEnabled = true;
-            this.cbxBusqueda.Location = new System.Drawing.Point(636, 20);
+            this.cbxBusqueda.Location = new System.Drawing.Point(704, 50);
             this.cbxBusqueda.Name = "cbxBusqueda";
             this.cbxBusqueda.Size = new System.Drawing.Size(184, 24);
             this.cbxBusqueda.TabIndex = 51;
@@ -127,7 +128,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(552, 23);
+            this.label11.Location = new System.Drawing.Point(609, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 50;
@@ -148,10 +149,10 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(319, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(887, 39);
+            this.label10.Padding = new System.Windows.Forms.Padding(3, 6, 0, 0);
+            this.label10.Size = new System.Drawing.Size(887, 80);
             this.label10.TabIndex = 48;
             this.label10.Text = "Lista de Productos";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtIndice
             // 
@@ -166,15 +167,15 @@
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -189,16 +190,16 @@
             this.dgvPrecioVenta,
             this.dgvEstadoValor,
             this.dgvEstado});
-            this.dgvData.Location = new System.Drawing.Point(324, 73);
+            this.dgvData.Location = new System.Drawing.Point(324, 108);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.RowTemplate.Height = 28;
-            this.dgvData.Size = new System.Drawing.Size(896, 461);
+            this.dgvData.Size = new System.Drawing.Size(896, 426);
             this.dgvData.TabIndex = 47;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
@@ -474,11 +475,33 @@
             this.label5.TabIndex = 56;
             this.label5.Text = "Categoria";
             // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnExportarExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportarExcel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnExportarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportarExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExportarExcel.IconChar = FontAwesome.Sharp.IconChar.Server;
+            this.btnExportarExcel.IconColor = System.Drawing.Color.White;
+            this.btnExportarExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExportarExcel.IconSize = 16;
+            this.btnExportarExcel.Location = new System.Drawing.Point(328, 49);
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.Size = new System.Drawing.Size(209, 29);
+            this.btnExportarExcel.TabIndex = 58;
+            this.btnExportarExcel.Text = "Guardar en un excel";
+            this.btnExportarExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExportarExcel.UseVisualStyleBackColor = false;
+            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 554);
+            this.Controls.Add(this.btnExportarExcel);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLimpiar);
@@ -549,5 +572,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstado;
+        private FontAwesome.Sharp.IconButton btnExportarExcel;
     }
 }
