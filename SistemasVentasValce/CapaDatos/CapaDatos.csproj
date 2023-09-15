@@ -45,6 +45,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DatosCategoria.cs" />
     <Compile Include="DatosPermiso.cs" />
+    <Compile Include="DatosProducto.cs" />
     <Compile Include="DatosRol.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

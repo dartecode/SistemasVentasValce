@@ -194,6 +194,11 @@ SELECT u.idUsuario, u.cedula, u.nombreCompleto, u.email, u.clave, u.estado, r.id
 FROM Usuario u 
 INNER JOIN Rol r on r.idRol = u.idRol;
 
+--Agregar productos
+INSERT INTO Producto (codigo, nombreProducto, descripcion, idCategoria, estado) 
+VALUES (101010, 'Inca Kola', '1 litro', 3, 1);
+
+SELECT * FROM Producto;
 
 
 
@@ -340,14 +345,12 @@ AS
 BEGIN
     SET @resultado = 1
     IF NOT EXISTS (SELECT * FROM Categoria WHERE descripcion = @descripcion AND idCategoria != @idCategoria)
-    
         BEGIN
             UPDATE Categoria SET
             descripcion = @descripcion,
             estado = @estado
             WHERE idCategoria = @idCategoria
         END
-    
     ELSE
         BEGIN
             SET @resultado = 0
@@ -378,3 +381,102 @@ BEGIN
             SET @mensaje = 'No se puede eliminar Categorias que se encuentran relacionadas a un producto'
         END
 END
+
+GO
+--Procedimiento para guardar Producto
+CREATE PROCEDURE SPRegistrarProducto(
+    @codigo varchar(50),
+    @nombreProducto varchar(100),
+    @descripcion varchar(100),
+    @idCategoria int,
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    IF NOT EXISTS (SELECT * FROM Producto WHERE codigo = @codigo)
+        BEGIN
+            INSERT INTO Producto (codigo, nombreProducto, descripcion, idCategoria, estado) 
+            VALUES (@codigo, @nombreProducto, @descripcion, @idCategoria, @estado)
+            SET @resultado = SCOPE_IDENTITY()
+        END
+    ELSE
+        SET @mensaje = 'Ya existe un producto con el mismo codigo'
+END
+
+GO
+
+--Procedimiento para editar Producto
+CREATE PROCEDURE SPEditarProducto(
+    @idProducto int,
+    @codigo varchar(50),
+    @nombreProducto varchar(100),
+    @descripcion varchar(100),
+    @idCategoria int,
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    IF NOT EXISTS (SELECT * FROM Producto WHERE codigo = @codigo AND idProducto != @idProducto)
+        BEGIN
+            UPDATE Producto SET
+                codigo = @codigo,
+                nombreProducto = @nombreProducto,
+                descripcion = @descripcion,
+                idCategoria = @idCategoria,
+                estado = @estado
+            WHERE idProducto = @idProducto
+        END
+    ELSE
+        BEGIN
+            SET @resultado = 0
+            SET @mensaje = 'Producto ya existente'
+        END
+END
+
+GO
+
+CREATE PROCEDURE SPEliminarProducto(
+    @idProducto int,
+    @respuesta bit output, 
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @respuesta = 0
+    SET @mensaje = ''
+    DECLARE @pasoReglas bit = 1
+
+    IF EXISTS (SELECT * FROM DetalleCompra dc 
+               INNER JOIN Producto p 
+               ON p.idProducto = dc.idProducto 
+               WHERE p.idProducto = @idProducto)
+        BEGIN
+            SET @pasoReglas = 0
+            SET @respuesta = 0
+            SET @mensaje = 'No se puede eliminar Producto que se encuentran relacionadas a una compra \n'
+        END
+    
+    IF EXISTS (SELECT * FROM DetalleVenta dv 
+               INNER JOIN Producto p 
+               ON p.idProducto = dv.idProducto 
+               WHERE p.idProducto = @idProducto)
+        BEGIN
+            SET @pasoReglas = 0
+            SET @respuesta = 0
+            SET @mensaje = 'No se puede eliminar Producto que se encuentran relacionadas a una Venta \n'
+        END
+
+    IF(@pasoReglas = 1)
+        BEGIN
+            DELETE FROM Producto WHERE idProducto = @idProducto
+            SET @respuesta = 1
+        END
+END
+
+GO

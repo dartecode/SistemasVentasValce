@@ -142,7 +142,7 @@ namespace CapaPresentacion
         private void LimpiarTextBox ()
         {
             txtIndice.Text = "-1";
-            txtId.Text = "";
+            txtId.Text = "0";
             txtCedula.Text = "";
             txtNombreCompleto.Text = "";
             txtEmail.Text = "";
@@ -270,6 +270,11 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarTextBox();
         }
     }
 }

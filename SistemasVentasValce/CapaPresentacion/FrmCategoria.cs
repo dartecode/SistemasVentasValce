@@ -59,6 +59,7 @@ namespace CapaPresentacion
             //Crear un objeto de clase Usuario para almacenar datos que queremos insertar a base de datos
             Categoria categoria = new Categoria()
             {
+                idCategoria = Convert.ToInt32(txtId.Text),
                 descripcion = txtDescripcion.Text,
                 estado = Convert.ToInt32(((OpcionCombo)cbxEstado.SelectedItem).Valor) == 1 ? true : false
             };
@@ -111,7 +112,7 @@ namespace CapaPresentacion
         private void LimpiarTextBox()
         {
             txtIndice.Text = "-1";
-            txtId.Text = "";
+            txtId.Text = "0";
             txtDescripcion.Text = "";
             txtDescripcion.Select();
         }
@@ -182,6 +183,7 @@ namespace CapaPresentacion
                     if (respuesta)
                     {
                         dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        LimpiarTextBox();
                     }
                     else
                     {
@@ -215,6 +217,11 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarTextBox();
         }
     }
 }
