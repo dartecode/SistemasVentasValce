@@ -43,3 +43,4 @@ C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresen
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.exe.config
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCliente.resources
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmProveedor.resources
