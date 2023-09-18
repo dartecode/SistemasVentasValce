@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -39,18 +39,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dgvIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarCampos = new FontAwesome.Sharp.IconButton();
@@ -67,6 +55,18 @@
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExportarExcel = new FontAwesome.Sharp.IconButton();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,15 +167,15 @@
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -195,113 +195,14 @@
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(896, 426);
             this.dgvData.TabIndex = 47;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 30;
-            // 
-            // dgvIdProducto
-            // 
-            this.dgvIdProducto.HeaderText = "ID";
-            this.dgvIdProducto.MinimumWidth = 6;
-            this.dgvIdProducto.Name = "dgvIdProducto";
-            this.dgvIdProducto.ReadOnly = true;
-            this.dgvIdProducto.Visible = false;
-            this.dgvIdProducto.Width = 125;
-            // 
-            // dgvCodigo
-            // 
-            this.dgvCodigo.HeaderText = "CODIGO";
-            this.dgvCodigo.MinimumWidth = 6;
-            this.dgvCodigo.Name = "dgvCodigo";
-            this.dgvCodigo.ReadOnly = true;
-            this.dgvCodigo.Width = 80;
-            // 
-            // dgvNombreProducto
-            // 
-            this.dgvNombreProducto.HeaderText = "NOMBRE";
-            this.dgvNombreProducto.MinimumWidth = 6;
-            this.dgvNombreProducto.Name = "dgvNombreProducto";
-            this.dgvNombreProducto.ReadOnly = true;
-            this.dgvNombreProducto.Width = 130;
-            // 
-            // dgvDescripcion
-            // 
-            this.dgvDescripcion.HeaderText = "DESCRIPCION";
-            this.dgvDescripcion.MinimumWidth = 6;
-            this.dgvDescripcion.Name = "dgvDescripcion";
-            this.dgvDescripcion.ReadOnly = true;
-            this.dgvDescripcion.Width = 130;
-            // 
-            // dgvIdCategoria
-            // 
-            this.dgvIdCategoria.HeaderText = "ID CAT";
-            this.dgvIdCategoria.MinimumWidth = 6;
-            this.dgvIdCategoria.Name = "dgvIdCategoria";
-            this.dgvIdCategoria.ReadOnly = true;
-            this.dgvIdCategoria.Visible = false;
-            this.dgvIdCategoria.Width = 125;
-            // 
-            // dgvCategoria
-            // 
-            this.dgvCategoria.HeaderText = "CATEGORIA";
-            this.dgvCategoria.MinimumWidth = 6;
-            this.dgvCategoria.Name = "dgvCategoria";
-            this.dgvCategoria.ReadOnly = true;
-            this.dgvCategoria.Width = 120;
-            // 
-            // dgvStock
-            // 
-            this.dgvStock.HeaderText = "STOCK";
-            this.dgvStock.MinimumWidth = 6;
-            this.dgvStock.Name = "dgvStock";
-            this.dgvStock.ReadOnly = true;
-            this.dgvStock.Width = 70;
-            // 
-            // dgvPrecioCompra
-            // 
-            this.dgvPrecioCompra.HeaderText = "PRECIO COMPRA";
-            this.dgvPrecioCompra.MinimumWidth = 6;
-            this.dgvPrecioCompra.Name = "dgvPrecioCompra";
-            this.dgvPrecioCompra.ReadOnly = true;
-            this.dgvPrecioCompra.Width = 70;
-            // 
-            // dgvPrecioVenta
-            // 
-            this.dgvPrecioVenta.HeaderText = "PRECIO VENTA";
-            this.dgvPrecioVenta.MinimumWidth = 6;
-            this.dgvPrecioVenta.Name = "dgvPrecioVenta";
-            this.dgvPrecioVenta.ReadOnly = true;
-            this.dgvPrecioVenta.Width = 70;
-            // 
-            // dgvEstadoValor
-            // 
-            this.dgvEstadoValor.HeaderText = "ESTADO/VALOR";
-            this.dgvEstadoValor.MinimumWidth = 6;
-            this.dgvEstadoValor.Name = "dgvEstadoValor";
-            this.dgvEstadoValor.ReadOnly = true;
-            this.dgvEstadoValor.Visible = false;
-            this.dgvEstadoValor.Width = 150;
-            // 
-            // dgvEstado
-            // 
-            this.dgvEstado.HeaderText = "ESTADO";
-            this.dgvEstado.MinimumWidth = 6;
-            this.dgvEstado.Name = "dgvEstado";
-            this.dgvEstado.ReadOnly = true;
-            this.dgvEstado.Width = 80;
             // 
             // label9
             // 
@@ -496,6 +397,105 @@
             this.btnExportarExcel.UseVisualStyleBackColor = false;
             this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 30;
+            // 
+            // dgvIdProducto
+            // 
+            this.dgvIdProducto.HeaderText = "ID";
+            this.dgvIdProducto.MinimumWidth = 6;
+            this.dgvIdProducto.Name = "dgvIdProducto";
+            this.dgvIdProducto.ReadOnly = true;
+            this.dgvIdProducto.Visible = false;
+            this.dgvIdProducto.Width = 125;
+            // 
+            // dgvCodigo
+            // 
+            this.dgvCodigo.HeaderText = "CODIGO";
+            this.dgvCodigo.MinimumWidth = 6;
+            this.dgvCodigo.Name = "dgvCodigo";
+            this.dgvCodigo.ReadOnly = true;
+            this.dgvCodigo.Width = 80;
+            // 
+            // dgvNombreProducto
+            // 
+            this.dgvNombreProducto.HeaderText = "NOMBRE";
+            this.dgvNombreProducto.MinimumWidth = 6;
+            this.dgvNombreProducto.Name = "dgvNombreProducto";
+            this.dgvNombreProducto.ReadOnly = true;
+            this.dgvNombreProducto.Width = 130;
+            // 
+            // dgvDescripcion
+            // 
+            this.dgvDescripcion.HeaderText = "DESCRIPCION";
+            this.dgvDescripcion.MinimumWidth = 6;
+            this.dgvDescripcion.Name = "dgvDescripcion";
+            this.dgvDescripcion.ReadOnly = true;
+            this.dgvDescripcion.Width = 130;
+            // 
+            // dgvIdCategoria
+            // 
+            this.dgvIdCategoria.HeaderText = "ID CAT";
+            this.dgvIdCategoria.MinimumWidth = 6;
+            this.dgvIdCategoria.Name = "dgvIdCategoria";
+            this.dgvIdCategoria.ReadOnly = true;
+            this.dgvIdCategoria.Visible = false;
+            this.dgvIdCategoria.Width = 125;
+            // 
+            // dgvCategoria
+            // 
+            this.dgvCategoria.HeaderText = "CATEGORIA";
+            this.dgvCategoria.MinimumWidth = 6;
+            this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
+            this.dgvCategoria.Width = 120;
+            // 
+            // dgvStock
+            // 
+            this.dgvStock.HeaderText = "STOCK";
+            this.dgvStock.MinimumWidth = 6;
+            this.dgvStock.Name = "dgvStock";
+            this.dgvStock.ReadOnly = true;
+            this.dgvStock.Width = 70;
+            // 
+            // dgvPrecioCompra
+            // 
+            this.dgvPrecioCompra.HeaderText = "PRECIO COMPRA";
+            this.dgvPrecioCompra.MinimumWidth = 6;
+            this.dgvPrecioCompra.Name = "dgvPrecioCompra";
+            this.dgvPrecioCompra.ReadOnly = true;
+            this.dgvPrecioCompra.Width = 80;
+            // 
+            // dgvPrecioVenta
+            // 
+            this.dgvPrecioVenta.HeaderText = "PRECIO VENTA";
+            this.dgvPrecioVenta.MinimumWidth = 6;
+            this.dgvPrecioVenta.Name = "dgvPrecioVenta";
+            this.dgvPrecioVenta.ReadOnly = true;
+            this.dgvPrecioVenta.Width = 80;
+            // 
+            // dgvEstadoValor
+            // 
+            this.dgvEstadoValor.HeaderText = "ESTADO/VALOR";
+            this.dgvEstadoValor.MinimumWidth = 6;
+            this.dgvEstadoValor.Name = "dgvEstadoValor";
+            this.dgvEstadoValor.ReadOnly = true;
+            this.dgvEstadoValor.Visible = false;
+            this.dgvEstadoValor.Width = 150;
+            // 
+            // dgvEstado
+            // 
+            this.dgvEstado.HeaderText = "ESTADO";
+            this.dgvEstado.MinimumWidth = 6;
+            this.dgvEstado.Name = "dgvEstado";
+            this.dgvEstado.ReadOnly = true;
+            this.dgvEstado.Width = 80;
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -560,6 +560,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconButton btnExportarExcel;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvIdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCodigo;
@@ -572,6 +573,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvEstado;
-        private FontAwesome.Sharp.IconButton btnExportarExcel;
     }
 }

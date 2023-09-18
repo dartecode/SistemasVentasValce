@@ -36,7 +36,7 @@ create table Cliente(
     idCliente int primary key identity,
     cedula varchar(50),
     nombreCompleto varchar (100),
-    correo varchar(50),
+    email varchar(50),
     telefono varchar(50),
     estado bit,
     fechaCreacion datetime default getdate()
@@ -199,77 +199,6 @@ INSERT INTO Producto (codigo, nombreProducto, descripcion, idCategoria, estado)
 VALUES (101010, 'Inca Kola', '1 litro', 3, 1);
 
 SELECT * FROM Producto;
-
-
-
-
---Procedimiento almacenado para insertar Usuario
-CREATE PROCEDURE SPRegistrarUsuario(
-    @cedula varchar(50),
-    @nombreCompleto varchar(100),
-    @email varchar(50),
-    @clave varchar(50),
-    @idRol int,
-    @estado bit,
-    @idUsuarioResultado int output,
-    @mensaje varchar (500) output 
-)
-AS
-BEGIN
-    SET @idUsuarioResultado = 0
-    SET @mensaje = ''
-
-    IF NOT EXISTS(SELECT * FROM Usuario WHERE cedula = @cedula)
-        BEGIN
-            INSERT INTO Usuario (cedula, nombreCompleto, email, clave, idRol, estado) 
-            VALUES (@cedula, @nombreCompleto, @email, @clave, @idRol, @estado)
-
-            SET @idUsuarioResultado = SCOPE_IDENTITY()
-            SET @mensaje = 'Usuario creado satisfactoriamente'
-
-        END
-    ELSE
-        SET @mensaje = 'No se puede crear otro usuario con la misma cedula'
-END
-
-
-
---Procedimiento almacenado para editar Usuario
-CREATE PROCEDURE SPEditarUsuario(
-    @idUsuario int,
-    @cedula varchar(50),
-    @nombreCompleto varchar(100),
-    @email varchar(50),
-    @clave varchar(50),
-    @idRol int,
-    @estado bit,
-    @respuesta bit output,
-    @mensaje varchar (500) output 
-)
-AS
-BEGIN
-    SET @respuesta = 0
-    SET @mensaje = ''
-
-    IF NOT EXISTS(SELECT * FROM Usuario WHERE cedula = @cedula AND idUsuario != @idUsuario)
-        BEGIN
-            UPDATE usuario SET
-            cedula = @cedula,
-            nombreCompleto = @nombreCompleto,
-            email = @email,
-            clave = @clave,
-            idRol = @idRol,
-            estado = @estado
-            WHERE idUsuario = @idUsuario 
-
-            SET @respuesta = 1
-            SET @mensaje = 'Usuario modificado satisfactoriamente'
-
-        END
-    ELSE
-        SET @mensaje = 'Ya existe otro usuario con este numero de cedula'
-END
-
 
 --Procedimiento almacenado para eliminar Usuario
 CREATE PROCEDURE SPEliminarUsuario(
@@ -480,3 +409,63 @@ BEGIN
 END
 
 GO
+
+
+--Procedimiento almacenado para insertar Cliente
+CREATE PROCEDURE SPRegistrarCliente(
+    @cedula varchar(50),
+    @nombreCompleto varchar(100),
+    @email varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar (500) output 
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    IF NOT EXISTS(SELECT * FROM Cliente WHERE cedula = @cedula)
+        BEGIN
+            INSERT INTO Cliente (cedula, nombreCompleto, email, telefono, estado) 
+            VALUES (@cedula, @nombreCompleto, @email, @telefono, @estado)
+
+            SET @resultado = SCOPE_IDENTITY()
+        END
+    ELSE
+        SET @mensaje = 'No se puede crear otro cliente con la misma cedula'
+END
+
+
+
+--Procedimiento almacenado para editar Cliente
+CREATE PROCEDURE SPEditarCliente(
+    @idCliente int,
+    @cedula varchar(50),
+    @nombreCompleto varchar(100),
+    @email varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar (500) output 
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+
+    IF NOT EXISTS (SELECT * FROM Cliente WHERE cedula = @cedula AND idCliente != @idCliente)
+        BEGIN
+            UPDATE Cliente SET
+            cedula = @cedula,
+            nombreCompleto = @nombreCompleto,
+            email = @email,
+            telefono = @telefono,
+            estado = @estado
+            WHERE idCliente = @idCliente 
+        END
+    ELSE
+        SET @resultado = 0
+        SET @mensaje = 'Ya existe este numero de cedula'
+END
