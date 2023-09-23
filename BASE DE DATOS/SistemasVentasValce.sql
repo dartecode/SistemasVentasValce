@@ -124,6 +124,20 @@ create table DetalleVenta(
     fechaRegistro datetime default getdate()
 );
 
+CREATE TABLE Negocio(
+    idNegocio int primary key,
+    nombreNegocio varchar(60),
+    ruc varchar(60),
+    direccion varchar(50),
+    logo varbinary(max) NULL
+);
+
+--Insertar Negocio Predeterminado
+INSERT INTO Negocio (idNegocio, nombreNegocio, ruc, direccion)
+VALUES (1, 'Market Valce', '1316068301001', 'Barrio Sta Clara, Calle 318');
+
+SELECT * FROM Negocio;
+
 
 -- Insertar Datos en las tablas
 
