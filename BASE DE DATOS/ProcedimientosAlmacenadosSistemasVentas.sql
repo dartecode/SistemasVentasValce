@@ -355,3 +355,62 @@ BEGIN
             SET @mensaje = 'No se puede eliminar Categorias que se encuentran relacionadas a una compra '
         END
 END
+
+
+
+--Procesos para realizar una compra
+
+CREATE TYPE [dbo].[EDetalleCompra] AS TABLE (
+    [idProducto] int NULL,
+    [precioCompra] decimal(18,2) NULL,
+    [precioVenta] decimal(18,2) NULL,
+    [cantidad] int NULL,
+    [montoTotal] decimal(18,2) NULL
+)
+
+GO
+
+ALTER PROCEDURE SPRegistrarCompra (
+    @idUsuario int,
+    @idProveedor int,
+    @tipoDocumento varchar(500),
+    @numeroDocumento varchar(500),
+    @montoTotal decimal(18,2),
+    @DetalleCompra [EDetalleCompra] READONLY,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS 
+BEGIN
+    BEGIN TRY
+        DECLARE @idCompra int = 0
+        SET @resultado = 1
+        SET @mensaje = ''
+
+        BEGIN TRANSACTION registro 
+            
+            INSERT INTO Compra(idUsuario, idProveedor, tipoDocumento, numeroDocumento, montoTotal)
+            VALUES(@idUsuario, @idProveedor, @tipoDocumento, @numeroDocumento, @montoTotal)
+            SET @idCompra = SCOPE_IDENTITY()
+
+            INSERT INTO DetalleCompra(idCompra, idProducto, precioCompra, precioVenta, cantidad, montoTotal)
+            SELECT @idCompra, idProducto, precioCompra, precioVenta, cantidad, montoTotal FROM @DetalleCompra
+
+            UPDATE p SET p.stock = p.stock + dc.cantidad,
+                         p.precioCompra = dc.precioCompra,
+                         p.precioVenta = dc.precioVenta
+            FROM Producto p 
+            INNER JOIN @DetalleCompra dc
+            ON dc.idProducto = p.idProducto
+
+        COMMIT TRANSACTION registro
+    END TRY
+
+    BEGIN CATCH
+        SET @resultado = 0
+        SET @mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+
+SELECT COUNT(*) +1 FROM Compra

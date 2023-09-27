@@ -45,6 +45,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DatosCategoria.cs" />
     <Compile Include="DatosCliente.cs" />
+    <Compile Include="DatosCompra.cs" />
     <Compile Include="DatosNegocio.cs" />
     <Compile Include="DatosPermiso.cs" />
     <Compile Include="DatosProducto.cs" />
