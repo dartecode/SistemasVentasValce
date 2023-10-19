@@ -370,7 +370,7 @@ CREATE TYPE [dbo].[EDetalleCompra] AS TABLE (
 
 GO
 
-ALTER PROCEDURE SPRegistrarCompra (
+CREATE PROCEDURE SPRegistrarCompra (
     @idUsuario int,
     @idProveedor int,
     @tipoDocumento varchar(500),
@@ -413,4 +413,22 @@ BEGIN
     END CATCH
 END
 
-SELECT COUNT(*) +1 FROM Compra
+SELECT COUNT(*) +1 FROM Compra;
+
+-- CONSULTAS
+SELECT c.idCompra, u.nombreCompleto, p.cedula, p.razonSocial,
+c.tipoDocumento, c.numeroDocumento, c.montoTotal, 
+CONVERT(char(10),c.fechaRegistro,103)[fechaRegistro]
+FROM Compra c
+INNER JOIN Usuario u 
+ON u.idUsuario = c.idUsuario
+INNER JOIN Proveedor p 
+ON p.idProveedor = c.idProveedor
+WHERE c.numeroDocumento = '00001'
+
+
+SELECT p.nombreProducto, dc.precioCompra, dc.cantidad, dc.montoTotal
+FROM DetalleCompra dc
+INNER JOIN Producto p 
+ON p.idProducto = dc.idProducto
+WHERE dc.idCompra = 1

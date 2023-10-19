@@ -40,11 +40,14 @@ C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresen
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\System.Memory.xml
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
-C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.exe.config
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCliente.resources
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmProveedor.resources
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmNegocio.resources
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCompra.resources
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
 C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProducto.resources
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDetalleCompra.resources
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\itextsharp.dll
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\FERNANDA\Documents\Dario\Sistemas Ventas\SistemasVentasValce\CapaPresentacion\bin\Debug\itextsharp.xml
